@@ -1,5 +1,12 @@
-const mongoose=require('mongoose')
-const cartSchema=new mongoose.Schema({
+const mongoose = require('mongoose');
 
-})
-module.exports=mongoose.model('Cart',cartSchema)
+const cartSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+    unique: true 
+  },
+}, { timestamps: true });
+
+module.exports = mongoose.model('Cart', cartSchema);
