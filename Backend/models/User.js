@@ -4,5 +4,5 @@ const userSchema=mongoose.Schema({
   email: { type: String, unique: true },
   password: String,
   role: { type: String, enum: ["customer", "admin"], default: "customer" },
-})
+}, { timestamps: true })
 module.exports=mongoose.model('User',userSchema)
