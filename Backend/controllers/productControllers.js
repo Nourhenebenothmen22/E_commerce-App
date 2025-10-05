@@ -17,16 +17,17 @@ exports.createProduct = async (req, res) => {
       return res.status(404).json({ message: "Category not found" });
     }
     const images = req.files?.map(file => ({
-      url: file.path,       // URL Cloudinary
-      public_id: file.filename, // ID pour suppression
-    }));
+  url: file.path,        // c’est la vraie URL Cloudinary
+  public_id: file.filename,
+}));
 
     // 2️⃣ Créer le produit
     const newProduct = new Product({
       name,
       price,
       stock,
-      category,ùimages: images || [],
+      category,
+      images: images || [],
     });
 
     const savedProduct = await newProduct.save();
@@ -179,37 +180,40 @@ exports.updateProduct = async (req, res) => {
  */
 exports.deleteProduct = async (req, res) => {
   try {
-    const id = req.params.id;
+    const { id } = req.params;
 
-    const deletedProduct = await Product.findByIdAndDelete(id);
-
-    if (!deletedProduct) {
-      return res.status(404).json({
-        success: false,
-        message: "Product not found",
-      });
+    if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+      return res.status(400).json({ success: false, message: "Invalid product ID" });
     }
-    for (const img of deletedProduct.images) {
-  await cloudinary.uploader.destroy(img.public_id);
-}
 
+    const deletedProduct = await Product.findById(id);
+    if (!deletedProduct) return res.status(404).json({ success: false, message: "Product not found" });
 
+    // Supprimer les images Cloudinary
+    if (deletedProduct.images?.length) {
+      for (const img of deletedProduct.images) {
+        if (img.public_id) {
+          try {
+            await cloudinary.uploader.destroy(img.public_id);
+          } catch (err) {
+            console.error("Cloudinary error:", err);
+          }
+        }
+      }
+    }
+
+    // Supprimer le produit
+    await Product.findByIdAndDelete(id);
 
     // Retirer le produit de la catégorie
-    await Category.findByIdAndUpdate(deletedProduct.category, {
-      $pull: { products: deletedProduct._id },
-    });
+    if (deletedProduct.category) {
+      await Category.findByIdAndUpdate(deletedProduct.category, { $pull: { products: deletedProduct._id } });
+    }
 
-    return res.status(200).json({
-      success: true,
-      message: "Product deleted successfully",
-      data: deletedProduct,
-    });
+    return res.status(200).json({ success: true, message: "Product deleted successfully", data: deletedProduct });
   } catch (error) {
     console.error("Error deleting product:", error);
-    return res.status(500).json({
-      success: false,
-      message: "Failed to delete product",
-    });
+    return res.status(500).json({ success: false, message: "Failed to delete product", error: error.message });
   }
 };
+
