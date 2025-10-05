@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const {createCategory,getCategories,getCategoryById,updateCategory,deleteCategory}= require("../controllers/CategoryController");
+const {createCategory,getCategories,getCategoryById,updateCategory,deleteCategory}= require("../controllers/categoryControllers");
 
 // 🔹 Créer une catégorie
 router.post("/",createCategory);
