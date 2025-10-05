@@ -38,11 +38,6 @@
   box-shadow: 0 6px 16px rgba(142, 45, 226, 0.5);
 }
 
-/* Icône dans le bouton */
-.btn-add-gradient svg {
-  font-size: 16px;
-}
-
 /* 🟣 Filtres de catégories */
 .category-filter {
   display: flex;
@@ -111,6 +106,7 @@
 .product-img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
   transition: transform 0.4s ease;
 }
 
@@ -118,20 +114,12 @@
   transform: scale(1.1);
 }
 
-/* 💰 Prix */
-.price-text {
-  color: #2c3e50;
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-/* 📦 Stock */
-.text-success {
-  color: #28a745 !important;
-}
-
-.text-danger {
-  color: #e63946 !important;
+/* 💰 & 📦 Info items */
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
 }
 
 /* ✨ Animation fadeIn */
