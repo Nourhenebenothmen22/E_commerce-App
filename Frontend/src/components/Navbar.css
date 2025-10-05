@@ -1,0 +1,45 @@
+/* Dégradé violet par défaut */
+.navbar-gradient {
+  background: linear-gradient(90deg, #8e2de2, #4a00e0); /* violet dégradé */
+  color: white;
+}
+
+/* Liens et logo en blanc sur le dégradé */
+.navbar-gradient .nav-link,
+.navbar-gradient .navbar-brand {
+  color: white !important;
+}
+
+/* Boutons Sign In et Toggle */
+.navbar-gradient .btn-outline-primary,
+.navbar-gradient .btn-outline-secondary {
+  border-color: white;
+  color: white;
+}
+
+/* Hover sur liens */
+.navbar-gradient .nav-link:hover {
+  color: #f0e6ff !important;
+}
+
+/* Badge du panier */
+.navbar-gradient .badge {
+  background-color: #ff4d6d; /* rose vif pour contraste */
+}
+
+/* Dark mode (toggle) */
+.navbar-darkmode {
+  background: linear-gradient(90deg, #4a00e0, #1a001a);
+  color: #f8f9fa;
+}
+
+.navbar-darkmode .nav-link,
+.navbar-darkmode .navbar-brand {
+  color: #f8f9fa !important;
+}
+
+.navbar-darkmode .btn-outline-primary,
+.navbar-darkmode .btn-outline-secondary {
+  border-color: #f8f9fa;
+  color: #f8f9fa;
+}

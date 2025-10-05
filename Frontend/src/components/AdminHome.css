@@ -1,0 +1,29 @@
+.admin-home h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.admin-card {
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.admin-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Responsive icon size */
+.admin-card .icon {
+  font-size: 3rem;
+}
+
+.admin-card h3 {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .admin-card {
+    padding: 2rem 1rem;
+  }
+}

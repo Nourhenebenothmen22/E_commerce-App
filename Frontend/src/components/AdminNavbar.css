@@ -1,0 +1,77 @@
+/* 🌸✨ Gradient rosé-violet doux et lumineux */
+.navbar-glow {
+  background: linear-gradient(90deg, #ff9a9e, #a18cd1, #fbc2eb, #a6c1ee);
+  background-size: 300% 300%;
+  animation: gradientShift 8s ease infinite;
+  box-shadow: 0 4px 25px rgba(173, 109, 255, 0.25);
+  backdrop-filter: blur(6px);
+  transition: all 0.4s ease-in-out;
+}
+
+/* 🌙 Mode sombre chic */
+.dark-mode {
+  background: linear-gradient(135deg, #1a1a2e, #2a145a);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  transition: background 0.3s ease;
+}
+
+/* 🌈 Animation douce du gradient */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 💎 Texte du logo avec lueur rose-violette */
+.brand-text {
+  background: linear-gradient(90deg, #fcb0ff, #e7a0f9, #c471ed, #a777e3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+/* ☀️ Bouton de mode sombre/clair */
+.btn-toggle {
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 192, 203, 0.3);
+}
+
+.btn-toggle:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 0 0 15px rgba(255, 192, 203, 0.5);
+}
+
+/* 🚪 Bouton logout élégant */
+.btn-logout {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.btn-logout:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(255, 183, 255, 0.4);
+}
+
+/* 🌫 Effet glassy pour navbar */
+.admin-navbar {
+  backdrop-filter: blur(10px);
+}

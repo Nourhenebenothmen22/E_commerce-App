@@ -1,0 +1,165 @@
+/* 🌈 Animation d'apparition */
+.products-page {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* 🟪 Titre principal */
+.page-title {
+  font-weight: 700;
+  color: #4a00e0;
+}
+
+/* 🔹 Header alignment */
+.products-page .d-flex {
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 🌈 Bouton "Add New Product" */
+.btn-add-gradient {
+  background: linear-gradient(90deg, #8e2de2, #4a00e0);
+  color: #fff !important;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(142, 45, 226, 0.4);
+}
+
+.btn-add-gradient:hover {
+  background: linear-gradient(90deg, #4a00e0, #8e2de2);
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(142, 45, 226, 0.5);
+}
+
+/* Icône dans le bouton */
+.btn-add-gradient svg {
+  font-size: 16px;
+}
+
+/* 🟣 Filtres de catégories */
+.category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.category-filter .btn {
+  border-radius: 25px;
+  border: 2px solid #8e2de2;
+  color: #8e2de2;
+  background-color: transparent;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 8px 18px;
+}
+
+.category-filter .btn.btn-primary,
+.category-filter .btn:hover {
+  background: linear-gradient(90deg, #8e2de2, #4a00e0);
+  color: #fff !important;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(142, 45, 226, 0.3);
+}
+
+/* 🔍 Barre de recherche */
+.search-bar {
+  border: 2px solid #8e2de2;
+  border-radius: 25px;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  max-width: 100%;
+}
+
+.search-bar:focus {
+  border-color: #4a00e0;
+  box-shadow: 0 0 6px rgba(142, 45, 226, 0.4);
+}
+
+/* 🖼️ Carte produit */
+.product-card {
+  border: 2px solid transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+  height: 80%;
+}
+
+.product-card:hover {
+  border-color: #8e2de2;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(142, 45, 226, 0.25);
+}
+
+/* 🖼️ Image produit */
+.image-wrapper {
+  height: 80%;
+  overflow: hidden;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.1);
+}
+
+/* 💰 Prix */
+.price-text {
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* 📦 Stock */
+.text-success {
+  color: #28a745 !important;
+}
+
+.text-danger {
+  color: #e63946 !important;
+}
+
+/* ✨ Animation fadeIn */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .products-page .d-flex {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.2rem;
+  }
+
+  .category-filter {
+    justify-content: center;
+  }
+
+  .btn-add-gradient {
+    width: 100%;
+    justify-content: center;
+  }
+}
