@@ -9,28 +9,32 @@ export default function OrdersOverview() {
 
   const BACKEND_URL = "http://localhost:5000"; // your backend URL
 
-  useEffect(() => {
-    const fetchOrders = async () => {
-      try {
-        const res = await axios.get(`${BACKEND_URL}/api/orders`);
-        setOrders(res.data);
-      } catch (err) {
-        console.error("Axios error:", err);
-        setError(err.response?.data?.message || "Failed to load orders");
-      } finally {
-        setLoading(false);
-      }
-    };
+ useEffect(() => {
+  const fetchOrders = async () => {
+    try {
+      const res = await axios.get(`${BACKEND_URL}/api/orders`);
+      // Assure-toi que orders est bien un tableau
+      setOrders(res.data.data || []);
+    } catch (err) {
+      console.error("Axios error:", err);
+      setError(err.response?.data?.message || "Failed to load orders");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchOrders();
-  }, []);
+  fetchOrders();
+}, []);
 
-  // Filter orders by user name or status
-  const filteredOrders = orders.filter(
-    (order) =>
-      order.user?.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      order.status?.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+
+ const filteredOrders = Array.isArray(orders)
+  ? orders.filter(
+      (order) =>
+        order.user?.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        order.status?.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  : [];
+
 
   if (loading)
     return (
@@ -73,9 +77,8 @@ export default function OrdersOverview() {
             <tr>
               <th>#ID</th>
               <th>User</th>
-              <th>Amount</th>
+             
               <th>Status</th>
-              <th>Date</th>
             </tr>
           </thead>
           <tbody>
@@ -83,9 +86,7 @@ export default function OrdersOverview() {
               <tr key={order._id || order.id}>
                 <td>{order._id || order.id}</td>
                 <td>{order.user?.name || "—"}</td>
-                <td>{order.amount} €</td>
                 <td>{order.status}</td>
-                <td>{new Date(order.createdAt).toLocaleDateString()}</td>
               </tr>
             ))}
             {filteredOrders.length === 0 && (
