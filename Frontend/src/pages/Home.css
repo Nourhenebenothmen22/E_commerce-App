@@ -1,0 +1,104 @@
+/* Home.css */
+
+/* Hero section full-page uniquement */
+.hero,
+.hero.full-page {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 8%;
+  min-height: 100vh; /* occupe toute la page */
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #7323AB, #E154B9, #F31365); /* violet clair → rose */
+  color: #fff;
+}
+
+/* Texte hero */
+.hero-content {
+  max-width: 600px;
+  z-index: 2;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+/* Boutons Clerk */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.cta-button {
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #fff;
+  background: #E154B9;
+}
+
+.cta-button.secondary {
+  background: #7323AB;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Image hero */
+.hero-image {
+  max-width: 500px;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.hero-image img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%; /* cercle parfait */
+  object-fit: cover;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* effet “bombe” */
+}
+
+/* Effet bombe au hover */
+.hero-image img:hover {
+  transform: scale(1.15) rotateX(5deg) rotateY(5deg);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image {
+    margin-top: 2rem;
+  }
+}

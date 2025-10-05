@@ -8,7 +8,6 @@ export default function AdminHome() {
   const { user } = useUser();
 
   const menuItems = [
-    { title: "User Management", icon: "👤", link: "/admin-dashboard/users", color: "#6C5B7B" },
     { title: "Product Catalog", icon: "🛒", link: "/admin-dashboard/products", color: "#355C7D" },
     { title: "Orders Overview", icon: "📦", link: "/admin-dashboard/orders", color: "#F67280" },
     { title: "Insights & Analytics", icon: "📊", link: "/admin-dashboard/analytics", color: "#F8B195" },
@@ -24,7 +23,7 @@ export default function AdminHome() {
 
       <div className="row g-4">
         {menuItems.map((item) => (
-          <div key={item.title} className="col-md-6 col-lg-3">
+          <div key={item.title} className="col-md-6 col-lg-4">
             <div
               className="admin-card text-center p-4 rounded-4 shadow-lg"
               style={{ backgroundColor: item.color }}

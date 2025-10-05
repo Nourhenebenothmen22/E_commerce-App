@@ -6,7 +6,6 @@ import AdminLayout from "./components/AdminLayout"; // Import du layout
 import UserDashboard from "./pages/UserDashboard";
 import Home from "./pages/Home";
 // Importez vos nouveaux composants pour chaque section
-import UserManagement from "./pages/admin/UserManagement";
 import ProductCatalog from "./pages/admin/ProductCatalog";
 import OrdersOverview from "./pages/admin/OrdersOverview";
 import InsightsAnalytics from "./pages/admin/InsightsAnalytics";
@@ -42,8 +41,7 @@ export default function App() {
           {/* Les routes enfants s'afficheront dans l'<Outlet /> de AdminLayout */}
           {/* Une route index est la page par défaut d'un ensemble de routes enfants */}
           <Route index element={<AdminHome/>} />
-          <Route path="users" element={<UserManagement />} />
-          <Route path="products" element={<ProductCatalog />} />
+*          <Route path="products" element={<ProductCatalog />} />
           <Route path="orders" element={<OrdersOverview />} />
           <Route path="analytics" element={<InsightsAnalytics />} />
           <Route path="add-product" element={<AddProduct />} />

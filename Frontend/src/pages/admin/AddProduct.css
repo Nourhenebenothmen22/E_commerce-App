@@ -1,0 +1,33 @@
+.add-product-page .text-gradient {
+  background: linear-gradient(90deg, #8e2de2, #4a00e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.input-gradient {
+  border: 2px solid #8e2de2;
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.input-gradient:focus {
+  border-color: #4a00e0;
+  box-shadow: 0 0 6px rgba(142, 45, 226, 0.4);
+  outline: none;
+}
+
+.btn-gradient {
+  background: linear-gradient(90deg, #8e2de2, #4a00e0);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(90deg, #4a00e0, #8e2de2);
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(142, 45, 226, 0.5);
+}
